@@ -1,78 +1,72 @@
 #type wasm
-filetype:str=chr(0)+"asm"
-version:str=chr(1)+chr(0)+chr(0)+chr(0)
+filetype = b'\0asm'
+version = b'\x01\x00\x00\x00'
 #----------------
-sectiontype=chr(1)
-sectionsize=chr(7)
+sectiontype = b'\x01'
+sectionsize = b'\x07'
 #-----------------
-numbertypes=chr(1)
-funcs=chr(0x60)
-parametrs=chr(2)
-parametrsid1=chr(0x7f)
-parametrsid2=chr(0x7f)
-numberofresults=chr(1)
-returnvalue=chr(0x7f)
+numbertypes = b'\x01'
+funcs = b'\x60'
+parametrs = b'\x02'
+parametrsid1 = b'\x7f'
+parametrsid2 = b'\x7f'
+numberofresults = b'\x01'
+returnvalue = b'\x7f'
 #-----------------
-functionid=chr(3)
-sectionsize2=chr(2)
-numberoffunctions=chr(1)
-indexcodes=chr(0)
+functionid = b'\x03'
+sectionsize2 = b'\x02'
+numberoffunctions = b'\x01'
+indexcodes = b'\x00'
 #-----------------
-exports=chr(7)
-sectionsize3=chr(7)
-numberexports=chr(1)
-lenname=chr(3)
-funcname="sum"
-exportmode=chr(0)
-exportindex=chr(0)
+exports = b'\x07'
+sectionsize3 = b'\x07'
+numberexports = b'\x01'
+lenname = b'\x03'
+funcname = b'sum'
+exportmode = b'\x00'
+exportindex = b'\x00'
 #--------------------
-sectioncode=chr(0xa)
-setioncodesize=chr(9)
-functioncount=chr(1)
-functionbodysize=chr(7)
-localdecl=chr(0)
+sectioncode = b'\x0a'
+setioncodesize = b'\x09'
+functioncount = b'\x01'
+functionbodysize = b'\x07'
+localdecl = b'\x00'
 #--------------------
-codes=chr(0x20)+chr(0x0)+chr(0x20)+chr(0x1)+chr(0x6a)+chr(0xb)
-
-
-
+codes = b'\x20\x00\x20\x01\x6a\x0b'
 
 print("\033c\033[43;30m\nCreating file...............\n")
-f1=open("main.wasm","w")
-#-----------------
-f1.write(filetype)
-f1.write(version)
-#-----------------
-f1.write(sectiontype)
-f1.write(sectionsize)
-#-----------------
-f1.write(numbertypes)
-f1.write(funcs)
-f1.write(parametrs)
-f1.write(parametrsid1)
-f1.write(parametrsid2)
-f1.write(numberofresults)
-f1.write(returnvalue)
-#-----------------
-f1.write(functionid)
-f1.write(sectionsize2)
-f1.write(numberoffunctions)
-f1.write(indexcodes)
-#-----------------
-f1.write(exports)
-f1.write(sectionsize3)
-f1.write(numberexports)
-f1.write(lenname)
-f1.write(funcname)
-f1.write(exportmode)
-f1.write(exportindex)
-#-----------------
-f1.write(sectioncode)
-f1.write(setioncodesize)
-f1.write(functioncount)
-f1.write(functionbodysize)
-f1.write(localdecl)
-#-----------------
-f1.write(codes)
-#-----------------
-f1.close()
+with open("main.wasm", "wb") as f1:
+    f1.write(filetype)
+    f1.write(version)
+    #-----------------
+    f1.write(sectiontype)
+    f1.write(sectionsize)
+    #-----------------
+    f1.write(numbertypes)
+    f1.write(funcs)
+    f1.write(parametrs)
+    f1.write(parametrsid1)
+    f1.write(parametrsid2)
+    f1.write(numberofresults)
+    f1.write(returnvalue)
+    #-----------------
+    f1.write(functionid)
+    f1.write(sectionsize2)
+    f1.write(numberoffunctions)
+    f1.write(indexcodes)
+    #-----------------
+    f1.write(exports)
+    f1.write(sectionsize3)
+    f1.write(numberexports)
+    f1.write(lenname)
+    f1.write(funcname)
+    f1.write(exportmode)
+    f1.write(exportindex)
+    #-----------------
+    f1.write(sectioncode)
+    f1.write(setioncodesize)
+    f1.write(functioncount)
+    f1.write(functionbodysize)
+    f1.write(localdecl)
+    #-----------------
+    f1.write(codes)
